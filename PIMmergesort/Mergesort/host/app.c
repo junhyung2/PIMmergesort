@@ -8,7 +8,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "../support/common.h" // T 타입 정의가 포함되어 있다고 가정
+#include "../support/common.h" 
 #include "../support/params.h"
 #include "../support/timer.h"
 
@@ -19,8 +19,6 @@
 #if ENERGY
 #include <dpu_probe.h>
 #endif
-
-#define Min(a, b) ((a) < (b) ? (a) : (b))
 
 static T* A;
 static T* B;
