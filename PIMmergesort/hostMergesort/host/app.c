@@ -36,7 +36,7 @@ static void read_input(T* A, unsigned int nr_elements) {
   }
   printf("\n[Original Input Data]\n");
   for (unsigned int i = 0; i < Min(nr_elements, 100); i++) {
-    printf("%d\n", A[i]); // T가 int이므로 %d 사용
+    printf("%d\n", A[i]); 
   }
 }
 
@@ -55,7 +55,7 @@ void MergeRecursive(T* src, T* dest, uint32_t left, uint32_t mid, uint32_t right
 }
 
 void MergeSortRecursive(T* arr, T* temp_buffer, uint32_t left, uint32_t right) {
-  if (right - left <= 1) { // 1개 이하의 요소는 이미 정렬된 것으로 간주
+  if (right - left <= 1) { 
     return;
   }
 
@@ -138,7 +138,7 @@ int main(int argc, char** argv) {
 
   // Loop over main kernel
   for (int rep = 0; rep < p.n_warmup + p.n_reps; rep++) {
-    // Compute output on CPU (performance comparison and verification purposes) - 여기서는 제거
+    // Compute output on CPU (performance comparison and verification purposes)
     if (rep >= p.n_warmup) start(&timer, 0, rep - p.n_warmup);
     if (rep >= p.n_warmup) stop(&timer, 0);
 
