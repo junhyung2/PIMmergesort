@@ -20,7 +20,7 @@
 
 __host dpu_arguments_t DPU_INPUT_ARGUMENTS;
 
-// // 삽입 정렬 함수
+// insertion sort
 void __attribute__((noinline)) insertionsort(T *input, unsigned int l_size) {
   for (unsigned int i = 1; i < l_size; i++) {
     T key = input[i];
