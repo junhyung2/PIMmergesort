@@ -20,7 +20,7 @@ To run this project, you must first install the [UPMEM SDK](https://sdk.upmem.co
 
 To compile and run the code with default parameters:
 ```
-cd Mergesort
+cd /your_path/PIMmergesort/Mergesort
 make test
 ```
 if you changed some parameters : 
