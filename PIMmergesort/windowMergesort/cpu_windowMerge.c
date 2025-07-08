@@ -160,7 +160,7 @@ void window_merge_on_cpu(T *mram_base, uint32_t total_blocks, uint32_t input_siz
             }
         }
 
-        // 병합된 [0...i]를 다시 왼쪽으로 덮어쓰기
+        // overwrite merged [0...i] to left mram region
         for (uint32_t j = 0; j <= i; j++)
         {
             for (uint32_t k = 0; k < ELEMENTS_PER_BLOCK; k++)
