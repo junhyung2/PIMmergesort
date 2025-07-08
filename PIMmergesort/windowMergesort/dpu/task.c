@@ -69,11 +69,11 @@ int main_kernel1() {
     for (uint32_t i = 1; i < total_blocks; i++) {
       uint32_t z_total = 0;
       uint32_t A_block_idx = 0;
-      uint32_t A_total_blocks = i; // [0,...,i-1] 병합 대상
+      uint32_t A_total_blocks = i; // [0,...,i-1] 
       uint32_t B_block_idx = i;
       uint32_t x = 0, y = 0, z = 0;
-      uint32_t A_size = BLOCK_SIZE / sizeof(T); // cache A element 수
-      uint32_t B_size = BLOCK_SIZE / sizeof(T); // cache B    ''
+      uint32_t A_size = BLOCK_SIZE / sizeof(T); // cache A element 
+      uint32_t B_size = BLOCK_SIZE / sizeof(T); // cache B   `` 
 
       mram_read((__mram_ptr void const *)(mram_base_addr_A + A_block_idx * BLOCK_SIZE), cache_A, BLOCK_SIZE);
       mram_read((__mram_ptr void const *)(mram_base_addr_A + B_block_idx * BLOCK_SIZE), cache_B, BLOCK_SIZE);
@@ -119,7 +119,7 @@ int main_kernel1() {
         }
       }
 
-      // 병합된 [0...i]를 다시 왼쪽으로 덮어쓰기
+      // overwrite merged [0...i] to left mram region
       for (uint32_t j = 0; j <= i; j++) {
         mram_read((__mram_ptr void const *)(mram_base_addr_A + input_size_dpu_bytes + j * BLOCK_SIZE), cache_C, BLOCK_SIZE);
         mram_write(cache_C, (__mram_ptr void *)(mram_base_addr_A + j * BLOCK_SIZE), BLOCK_SIZE);
