@@ -20,7 +20,7 @@
 
 __host dpu_arguments_t DPU_INPUT_ARGUMENTS;
 
-// // 삽입 정렬 함수
+//insertion sort
 void __attribute__((noinline)) insertionsort(T *input, unsigned int l_size) {
   for (unsigned int i = 1; i < l_size; i++) {
     T key = input[i];
@@ -92,7 +92,7 @@ void merge_all_blocks(T *src, T *dst, uint32_t src_size, uint32_t block_size) {
   }
 }
 
-// Barrier 초기화
+// Barrier
 BARRIER_INIT(my_barrier, NR_TASKLETS);
 
 extern int main_kernel1(void);
