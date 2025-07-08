@@ -34,7 +34,7 @@ void __attribute__((noinline)) insertionsort(T *input, unsigned int l_size) {
 }
 
 
-// Barrier 초기화
+// Barrier
 BARRIER_INIT(my_barrier, NR_TASKLETS);
 
 extern int main_kernel1(void);
