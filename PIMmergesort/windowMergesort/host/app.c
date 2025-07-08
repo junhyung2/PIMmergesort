@@ -24,7 +24,7 @@
 #endif
 
 static T *A;
-static T *B; // DPU에서 정렬된 결과를 받을 배열
+static T *B; 
 static T *C;
 
 // Create input arrays
@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
     // Copy input arrays
     i = 0;
     DPU_FOREACH(dpu_set, dpu, i) {
-      if (i == 0 || i == 1) { // DPU 0, 1에만 전송
+      if (i == 0 || i == 1) { 
         // Input arguments
         DPU_ASSERT(dpu_copy_to(dpu, "DPU_INPUT_ARGUMENTS", 0, &input_arguments[i], sizeof(input_arguments[0])));
 
@@ -194,7 +194,7 @@ int main(int argc, char **argv) {
 
     i = 0;
     DPU_FOREACH(dpu_set, dpu, i) {
-      if (i == 2) { // DPU 2에만 전송
+      if (i == 2) { 
         // Input arguments
         DPU_ASSERT(dpu_copy_to(dpu, "DPU_INPUT_ARGUMENTS", 0, &input_arguments[i], sizeof(input_arguments[0])));
 
@@ -228,7 +228,7 @@ int main(int argc, char **argv) {
     print(&timer, 1, p.n_reps);
     printf("DPU Kernel ");
     print(&timer, 2, p.n_reps);
-    printf("DPU-CPU "); // 이 부분이 DPU-CPU 데이터 전송 시간을 나타냅니다.
+    printf("DPU-CPU "); 
     print(&timer, 3, p.n_reps);
 
 #if ENERGY
@@ -237,22 +237,13 @@ int main(int argc, char **argv) {
     printf("DPU Energy (J): %f\t", energy);
 #endif
 
-    // Check output (제거됨)
-    // bool status = true; // 제거됨
-    // if (status) { // 제거됨
-    //     printf("[" ANSI_COLOR_GREEN "OK" ANSI_COLOR_RESET "] Outputs are
-    //     equal (sorted)\n"); // 제거됨
-    // } else { // 제거됨
-    //     printf("[" ANSI_COLOR_RED "ERROR" ANSI_COLOR_RESET "] Outputs differ
-    //     (not sorted correctly)!\n"); // 제거됨
-    // }
   }
 
   // Deallocation
   free(A);
-  free(B); // DPU 결과 배열 해제
+  free(B); 
   DPU_ASSERT(dpu_free(dpu_set));
 
-  // return status ? 0 : -1; // 제거됨
-  return 0; // 항상 성공으로 가정 (검증 로직 없으므로)
+  // return status ? 0 : -1; 
+  return 0; 
 }
