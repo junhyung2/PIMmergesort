@@ -31,8 +31,7 @@ make test
 ```
 ### Handling Parameters
 
-You can customize parameters such as block size, number of DPUs, number of tasklets, and input size via the Makefile and command-line options.
-
+You can customize parameters such as block size, number of DPUs, number of tasklets, and input size via the Makefile.
 Example:
 ```
 ./${HOST_TARGET} -w 0 -e 1 -i 512 -x 1
