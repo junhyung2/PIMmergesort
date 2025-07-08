@@ -120,7 +120,6 @@ int main_kernel1() {
   uint32_t base_tasklet = tasklet_id << BLOCK_SIZE_LOG2;
   uint32_t mram_base_addr_A = (uint32_t)DPU_MRAM_HEAP_POINTER;
   T *cache_A = (T *)mem_alloc(BLOCK_SIZE);
-  uint32_t total_written_bytes = 0;
 
 #if !PERF_SYNC
   for (unsigned int byte_index = base_tasklet; byte_index < input_size_dpu_bytes; byte_index += BLOCK_SIZE * NR_TASKLETS) {
