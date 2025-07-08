@@ -8,7 +8,7 @@ This repository contains three different implementations of mergesort designed f
 
 * hostMergesort: A multi-DPU mergesort where the host performs the final merge after DPUs finish their tasks.
 
-* windowMergesort: A multi-DPU mergesort that performs all merging inside the DPUs without involving the host. In this implementation, the number of DPUs is fixed to 3: two for the initial merge, and one for the final merge.For example, if the input size is 4MB, DPUs 1 and 2 process 2MB each, and DPU 3 receives 4MB as the final merged input.(See app.c of windowMerge, lines 100–105 for hardcoded behavior.)
+* windowMergesort: A multi-DPU mergesort that performs all merging inside the DPUs without involving the host. In this implementation, the number of DPUs is fixed to 3: two for the initial merge, and one for the final merge. For example, if the input size is 4MB, DPUs 1 and 2 process 2MB each, and DPU 3 receives 4MB as the final merged input.(See app.c of windowMerge, lines 100–105 for hardcoded behavior.)
 
 ## Prerequisites
 
