@@ -23,6 +23,12 @@ To compile and run the code with default parameters:
 cd Mergesort
 make test
 ```
+if you changed some parameters : 
+
+```
+make clean
+make test
+```
 ### Handling Parameters
 
 You can customize parameters such as block size, number of DPUs, number of tasklets, and input size via the Makefile and command-line options.
@@ -55,14 +61,15 @@ while ((opt = getopt(argc, argv, "hi:w:e:x:")) >= 0) {
 
 ### Current Issues
 
-The current windowMerge implementation for UPMEM does not function correctly, while the CPU version using the same logic works as expected.This issue is likely caused by problems related to address allocation or limited WRAM cache capacity during MRAM-to-WRAM data transfers.
+The current windowMerge implementation for UPMEM does not function correctly, while the CPU version using the same logic works as expected. This issue is likely caused by problems related to address allocation or limited WRAM cache capacity during MRAM-to-WRAM data transfers.
 
 ### Goal
 
 Our short-term goals for improving windowMergesort include:
 
-To enable scalability with more DPUs, we need a mechanism that allows a DPU to send signals to the host when certain tasks are completed — even before the DPU launch finishes.
+* To enable scalability with more DPUs, we need a mechanism that allows a DPU to send signals to the host when certain tasks are completed — even before the DPU launch finishes.
 
-To eliminate the need for a master tasklet, we are exploring lightweight synchronization methods between tasklets that can minimize overhead.
+* To eliminate the need for a master tasklet, we are exploring lightweight synchronization methods between tasklets that can minimize overhead.
 
+## Contact
 If you have any suggestions or ideas for improvement, feel free to contact me. (peter04771@knu.ac.kr)
