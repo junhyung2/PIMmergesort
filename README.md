@@ -63,7 +63,8 @@ while ((opt = getopt(argc, argv, "hi:w:e:x:")) >= 0) {
 
 ### Current Issues
 
-The current windowMerge implementation for UPMEM does not function correctly, while the CPU version using the same logic works as expected. This issue is likely caused by problems related to address allocation or limited WRAM cache capacity during MRAM-to-WRAM data transfers.
+The current windowMerge implementation for UPMEM does not function correctly with 4-byte input data type. 
+You have to use 8-byte data type (`uint64_t`) for test.
 
 ### Goal
 
